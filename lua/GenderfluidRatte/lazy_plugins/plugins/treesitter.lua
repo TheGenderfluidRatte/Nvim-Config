@@ -3,5 +3,5 @@ return {
     lazy = false,
     build = ':TSUpdate',
 
-    init = require("GenderfluidRatte.lazy_plugins.config.treesitter_config").setup()
+    init = require("GenderfluidRatte.lazy_plugins.config.treesitter").setup()
 }
