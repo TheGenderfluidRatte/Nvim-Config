@@ -15,7 +15,7 @@ return {
         'petertriho/cmp-git',
     },
 
-    config = function() 
+    config = function()
         require("GenderfluidRatte.lazy_plugins.config.cmp").config()
     end
 }

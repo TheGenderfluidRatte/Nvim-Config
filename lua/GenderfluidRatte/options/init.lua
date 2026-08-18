@@ -2,7 +2,8 @@ local options = {}
 
 function options.setup()
 	require("GenderfluidRatte.options.tabs").setup()
-	require("GenderfluidRatte.options.numbers").setup()
+	require("genderfluidratte.options.numbers").setup()
+	require("genderfluidratte.options.diagnostics").setup()
 end
 
 return options
