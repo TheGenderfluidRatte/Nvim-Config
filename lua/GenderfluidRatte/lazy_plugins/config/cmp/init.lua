@@ -5,17 +5,13 @@ cmp.plugin = require("cmp")
 function cmp.config()
     cmp.plugin.setup({
         snippet = {
-            expand = cmp.snippet_engine(args)
+            expand = function(args) require('luasnip').lsp_expand(args.body) end
         },
         window = cmp.completion_window(),
         mapping = cmp.plugin.mapping.preset.insert(cmp.keymapping()),
-        sources = cmp.plugin.sources(cmp.sources())
+        sources = cmp.sources(),
     })
     cmp.git_integration()
-end
-
-function cmp.snippet_engine(args)
-    require('luasnip').lsp_expand(args.body)
 end
 
 function cmp.completion_window()
@@ -33,12 +29,12 @@ function cmp.keymapping()
 end
 
 function cmp.sources()
-    return {
+    return cmp.plugin.config.sources ({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
     }, {
         { name = "buffer" },
-    }
+    })
 end
 
 function cmp.git_integration()
