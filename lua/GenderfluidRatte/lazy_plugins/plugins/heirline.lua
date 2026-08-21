@@ -3,7 +3,6 @@ return {
 
     dependencies = {
         "nvim-tree/nvim-web-devicons",
-        "lewis6991/gitsigns.nvim"
     },
 
     event = "VeryLazy",
