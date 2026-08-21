@@ -18,7 +18,13 @@ end
 function git.makeBranchName()
     return {
         provider = function()
-            return "  " .. git.getStatusDict().head .. " "
+            local head_name = git.getStatusDict().head or ""
+
+            if head_name == "" and git.conditions.is_git_repo then
+                return " Git Repo "
+            end
+
+            return "  " .. head_name .. " "
         end,
 
         hl = { bg = git.utils.get_highlight("LineNr").bg, bold = true }
@@ -72,21 +78,10 @@ function git.makeEndPiece()
 end
 
 function git.getStatusLineObj()
-     require("gitsigns").setup()
-
     return {
-        condition = git.conditions.is_git_repo,
-
         git.makeBranchName(),
         git.makeDelimiters(),
         git.makeEndPiece(),
-
-        update = {
-            "BufEnter",
-            "BufWritePost",
-            "TextChanged",
-            "TextChangedI",
-        }
     }
 end
 
