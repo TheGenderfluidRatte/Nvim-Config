@@ -4,10 +4,6 @@ git.utils = require("heirline.utils")
 git.conditions = require("heirline.conditions")
 
 function git.getStatusDict()
-    for key, value in pairs(vim.b.gitsigns_status_dict) do
-        print(key .. ": " .. value)
-    end
-
     return vim.b.gitsigns_status_dict or {}
 end
 
