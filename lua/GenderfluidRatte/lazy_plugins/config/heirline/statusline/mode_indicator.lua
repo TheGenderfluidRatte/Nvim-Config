@@ -89,31 +89,13 @@ end
 
 function mode_indicator.makeEndPiece()
     return {
-        {
-            condition = function() return mode_indicator.conditions.is_git_repo end,
+        provider = "",
 
-            provider = "",
-
-            hl = {
-                fg = mode_indicator.utils.get_highlight("FloatBorder").fg,
-                bg = mode_indicator.utils.get_highlight("LineNr").bg,
-                bold = true
-            }
-        },
-
-        {
-            condition = function() return not mode_indicator.conditions.is_git_repo end,
-
-            provider = "",
-
-            hl = {
-                fg = mode_indicator.utils.get_highlight("FloatBorder").fg,
-                bg = "",
-                bold = true
-            }
-        },
-
-        update = "BufEnter"
+        hl = {
+            fg = mode_indicator.utils.get_highlight("FloatBorder").fg,
+            bg = "",
+            bold = true
+        }
     }
 end
 
