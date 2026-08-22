@@ -36,7 +36,7 @@ function filename.makeFileNameAndPath()
                 working_dir_filename = vim.fn.pathshorten(working_dir_filename)
             end
 
-            return " " .. working_dir_filename .. " "
+            return "  " .. working_dir_filename .. "  "
         end,
 
         hl = {

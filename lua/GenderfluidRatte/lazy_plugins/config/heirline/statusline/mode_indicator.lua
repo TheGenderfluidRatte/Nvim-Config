@@ -65,7 +65,7 @@ end
 function mode_indicator.makeModeIndicator()
     return {
         provider = function()
-            return "  󰄛  " .. mode_indicator.names[mode_indicator.getCurrentMode()] .. "  "
+            return "   󰄛  " .. mode_indicator.names[mode_indicator.getCurrentMode()] .. "   "
         end,
 
         hl = function()
